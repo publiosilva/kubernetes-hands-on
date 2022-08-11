@@ -133,3 +133,39 @@ To delete all:
 ```bash
 kubectl delete configmap --all
 ```
+
+### List replica sets
+
+```bash
+kubectl get replicasets
+```
+
+Or
+
+```bash
+kubectl get rs
+```
+
+### List deployments
+
+```bash
+kubectl get deployments
+```
+
+### Show deployment history
+
+```bash
+kubectl rollout history deployment DEPLOYMENT_NAME
+```
+
+### Set deployment change cause
+
+```bash
+kubectl annotate deployment DEPLOYMENT_NAME kubernetes.io/change-cause="CHANGE_CAUSE"
+```
+
+### Rollback to previous deployment revision
+
+```bash
+kubectl rollout undo deployment DEPLOYMENT_NAME --to-revision=REVISION_NUMBER
+```
