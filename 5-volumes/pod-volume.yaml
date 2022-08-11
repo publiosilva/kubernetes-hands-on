@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-volume
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: /MySharedDir
+          name: my-shared-dir-volume
+    - name: jenkins-container
+      image: jenkins:alpine
+      volumeMounts:
+        - mountPath: /MySharedDir
+          name: my-shared-dir-volume
+  volumes:
+    - name: my-shared-dir-volume
+      hostPath:
+        path: /C/MySharedDir
+        type: Directory
